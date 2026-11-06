@@ -8,8 +8,8 @@
 }
 
 body {
-  background: #0b0b12;
-  color: #ffffff;
+  background: #ff5151;
+  color: #680606;
   font-family: Arial, sans-serif;
 }
 
@@ -74,7 +74,7 @@ a {
 
 .tag {
   color: #c084fc;
-  background: #211331;
+  background: #680606;
   padding: 10px 16px;
   border-radius: 30px;
   font-size: 13px;
@@ -91,7 +91,7 @@ a {
 
 .hero h2 {
   font-size: 23px;
-  color: #d1b5ed;
+  color: #680606;
   margin-bottom: 20px;
 }
 
