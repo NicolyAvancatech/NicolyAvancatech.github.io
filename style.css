@@ -1,0 +1,298 @@
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+:root {
+    --azul-escuro: #071B33;
+    --azul: #2563A6;
+    --roxo: #102F50;
+    --lilas: #60A5FA;
+    --branco: #FFFFFF;
+    --cinza: #DBEAFE;
+    --fundo-card: #102F50;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("imagens/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: var(--branco);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+/* =================================
+   CONTAINER PRINCIPAL
+================================= */
+
+.container {
+    width: 90%;
+    max-width: 650px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+
+/* =================================
+   AVATAR
+================================= */
+
+
+.avatar {
+    width: 130px;
+    height: 130px;
+
+    margin: 0 auto 20px;
+
+    border: 3px solid #60A5FA;
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.3);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+
+
+/* =================================
+   APRESENTAÇÃO
+================================= */
+
+.perfil {
+    margin-bottom: 35px;
+}
+
+.perfil h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+    color: var(--branco);
+}
+
+.perfil h2 {
+    font-size: 17px;
+    font-weight: normal;
+    color: var(--lilas);
+    margin-bottom: 15px;
+}
+
+.perfil p {
+    color: var(--cinza);
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+
+
+/* =================================
+   REDES SOCIAIS
+================================= */
+
+.redes {
+    margin-bottom: 30px;
+}
+
+.redes h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    width: 220px;
+    margin: 0 auto 9px;
+
+    background: var(--fundo-card);
+    color: var(--branco);
+
+    text-decoration: none;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.redes a i {
+    font-size: 16px;
+}
+
+.redes a:hover {
+    background: #2563A6;
+    transform: translateY(-2px);
+    border-color: #60A5FA;
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.15);
+}
+
+
+
+
+
+/* =================================
+   SOBRE MIM
+================================= */
+
+.sobre {
+    background: var(--fundo-card);
+
+    width: 90%;
+    max-width: 450px;
+
+    padding: 15px;
+    margin: 0 auto 25px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.sobre h2 {
+    color: var(--lilas);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.sobre p {
+    color: var(--cinza);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =================================
+   PROJETOS
+================================= */
+
+
+.projetos {
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto 30px;
+}
+
+.projetos h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--branco);
+}
+
+.lista-projetos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.projeto {
+    background: var(--fundo-card);
+
+    padding: 12px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+
+    transition: 0.3s ease;
+}
+
+.projeto:hover {
+    transform: translateY(-3px);
+    border-color: var(--lilas);
+}
+
+.projeto h3 {
+    color: var(--lilas);
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.projeto p {
+    color: var(--cinza);
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+.projeto a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+
+/* =================================
+   RODAPÉ
+================================= */
+
+footer {
+    padding: 25px 0;
+    border-top: 1px solid rgba(185, 167, 255, 0.2);
+}
+
+footer p {
+    color: var(--cinza);
+    font-size: 13px;
+}
+
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    .perfil h1 {
+        font-size: 27px;
+    }
+
+    .perfil h2 {
+        font-size: 15px;
+    }
+
+    .lista-projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre {
+        padding: 20px;
+    }
+
+}
