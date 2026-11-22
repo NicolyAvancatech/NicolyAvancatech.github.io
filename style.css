@@ -1,3 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* FONTE PRINCIPAL */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* TÍTULOS */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
+/* NOME DO PERFIL */
+.perfil-conteudo h1 {
+    font-size: 55px;
+    font-weight: 800;
+}
+
+/* TEXTOS */
+p,
+span,
+a,
+button {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* TÍTULOS DOS PROJETOS */
+.projeto h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
 
 /* =====================================
    PALETA DE CORES AUTOMÁTICA
@@ -566,4 +600,305 @@ a, button,
         opacity: 0;
         visibility: hidden;
     }
+}
+
+.gif-decorativo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.gif-decorativo img {
+    width: 650px;
+    height: auto;
+    object-fit: contain;
+}
+
+.perfil-conteudo h1 {
+    animation: brilhoPiscando 2s ease-in-out infinite;
+}
+
+/* ILUMINAÇÃO PULSANTE DO PERFIL */
+.avatar {
+    animation: brilhoPerfil 2s ease-in-out infinite;
+    transition: 0.3s ease;
+}
+
+@keyframes brilhoPerfil {
+    0%, 100% {
+        box-shadow:
+            0 0 8px var(--cor-principal),
+            0 0 15px var(--cor-secundaria);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px var(--cor-principal),
+            0 0 30px var(--cor-secundaria),
+            0 0 50px var(--cor-destaque);
+    }
+}
+
+/* LINHA ANIMADA ABAIXO DO NOME */
+.perfil-conteudo h1 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.perfil-conteudo h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cor-principal),
+        var(--cor-destaque),
+        var(--cor-principal),
+        transparent
+    );
+
+    background-size: 200% 100%;
+    animation: linhaMovendo 2s linear infinite;
+
+    box-shadow: 0 0 10px var(--cor-principal);
+    border-radius: 10px;
+}
+
+@keyframes linhaMovendo {
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: -100% 0;
+    }
+}
+
+/* BRILHO CIRCULANDO */
+.sobre,
+.projetos,
+.redes a {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid transparent;
+
+    background:
+        linear-gradient(var(--cor-card), var(--cor-card)) padding-box,
+        conic-gradient(
+            from var(--angulo),
+            transparent,
+            var(--cor-principal),
+            var(--cor-destaque),
+            transparent 40%,
+            transparent
+        ) border-box;
+
+    animation: brilhoCirculando 4s linear infinite;
+    border-radius: 18px;
+}
+
+@property --angulo {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes brilhoCirculando {
+    to {
+        --angulo: 360deg;
+    }
+}
+
+/* BRILHO INTENSO CIRCULANDO */
+.sobre,
+.projetos,
+.redes a {
+    position: relative;
+    isolation: isolate;
+    border: 2px solid transparent;
+
+    background:
+        linear-gradient(var(--cor-card), var(--cor-card)) padding-box,
+        conic-gradient(
+            from var(--angulo),
+            transparent 0deg,
+            var(--cor-principal) 50deg,
+            #ffffff 75deg,
+            var(--cor-destaque) 100deg,
+            transparent 150deg,
+            transparent 360deg
+        ) border-box;
+
+    animation: brilhoCirculando 2.5s linear infinite;
+
+    box-shadow:
+        0 0 10px var(--cor-principal),
+        0 0 20px var(--cor-secundaria),
+        0 0 35px var(--cor-destaque);
+    border-radius: 18px;
+}
+
+@property --angulo {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes brilhoCirculando {
+    to {
+        --angulo: 360deg;
+    }
+}
+
+/* PONTOS DE LUZ MAIS INTENSOS */
+/* PONTOS BRILHANTES ANIMADOS */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffffff 1.5px,
+            var(--cor-destaque) 2px,
+            transparent 4px
+        ) 0 0 / 100px 100px;
+
+    animation: estrelasBrilhando 2s ease-in-out infinite alternate;
+}
+
+@keyframes estrelasBrilhando {
+    0% {
+        opacity: 0.25;
+        filter: drop-shadow(0 0 2px var(--cor-principal));
+    }
+
+    50% {
+        opacity: 0.8;
+        filter:
+            drop-shadow(0 0 6px var(--cor-principal))
+            drop-shadow(0 0 12px var(--cor-destaque));
+    }
+
+    100% {
+        opacity: 1;
+        filter:
+            drop-shadow(0 0 10px #ffffff)
+            drop-shadow(0 0 18px var(--cor-principal));
+    }
+}
+
+
+/* CARDS GÓTICOS MEDIEVAIS */
+.projeto {
+    position: relative;
+    padding: 30px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 12, 38, 0.96),
+            rgba(8, 5, 17, 0.98)
+        );
+
+    border: 1px solid var(--cor-principal);
+    border-radius: 45px 45px 12px 12px;
+
+    box-shadow:
+        inset 0 0 25px rgba(120, 55, 180, 0.12),
+        0 0 12px color-mix(in srgb, var(--cor-principal), transparent 45%);
+
+    transition: 0.5s ease;
+}
+
+/* MOLDURA INTERNA */
+.projeto::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+
+    border: 1px solid color-mix(
+        in srgb,
+        var(--cor-destaque),
+        transparent 45%
+    );
+
+    border-radius: 38px 38px 7px 7px;
+    pointer-events: none;
+}
+
+/* ORNAMENTO NO TOPO */
+.projeto::after {
+    content: "✧";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: var(--cor-destaque);
+    font-size: 25px;
+    text-shadow: 0 0 12px var(--cor-principal);
+}
+
+/* TÍTULOS */
+.projeto h3 {
+    color: var(--cor-destaque);
+    font-family: Georgia, serif;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px var(--cor-principal);
+}
+
+/* DESCRIÇÃO */
+.projeto p {
+    color: var(--cor-texto-secundario);
+    line-height: 1.8;
+    font-family: Georgia, serif;
+}
+
+/* BOTÕES */
+.projeto a {
+    display: inline-block;
+    padding: 11px 24px;
+
+    color: var(--cor-destaque);
+    font-family: Georgia, serif;
+    text-decoration: none;
+
+    border: 1px solid var(--cor-principal);
+    border-radius: 4px 18px 4px 18px;
+
+    background: rgba(70, 30, 100, 0.15);
+    transition: 0.4s ease;
+}
+
+/* HOVER MÁGICO */
+.projeto:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--cor-destaque);
+
+    box-shadow:
+        0 0 12px var(--cor-principal),
+        0 0 30px color-mix(in srgb, var(--cor-secundaria), transparent 35%),
+        inset 0 0 30px rgba(130, 60, 200, 0.18);
+}
+
+.projeto a:hover {
+    color: white;
+    background: var(--cor-principal);
+
+    box-shadow:
+        0 0 12px var(--cor-principal),
+        0 0 25px var(--cor-secundaria);
 }
